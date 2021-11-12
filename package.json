@@ -1,0 +1,30 @@
+{
+  "name": "searchspring",
+  "version": "1.0.0",
+  "description": "Searchspring technical challenge",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bwatry/searchspring.git"
+  },
+  "author": "Brenna Watry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bwatry/searchspring/issues"
+  },
+  "homepage": "https://github.com/bwatry/searchspring#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "babel-loader": "^8.2.3",
+    "express": "^4.17.1",
+    "webpack": "^5.64.0",
+    "webpack-cli": "^4.9.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
