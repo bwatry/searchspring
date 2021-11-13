@@ -6,7 +6,8 @@ import { CardContent } from "@mui/material";
 import { CardMedia } from "@mui/material";
 import Search from "./Search";
 
-function Results() {
+function Results(props) {
+    console.log(props.results);
     return <Grid container spacing={4} alignItems="center" justifyContent="space-between" className="results-section">
         <Grid item xs={10}>
             <h2>Showing <strong>number</strong> of <strong>number</strong> results for "query"</h2>
@@ -23,7 +24,7 @@ function Results() {
                         alt="see if there is alt text in json file"
                     />
                     <CardContent>
-                        <h3>name</h3>
+                        <h3>{props.results.name}</h3>
                         <p id="msrp">msrp</p>
                         <p>price</p>
                     </CardContent>
