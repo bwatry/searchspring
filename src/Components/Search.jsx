@@ -4,7 +4,8 @@ import { Button } from "@mui/material";
 
 function Search() {
     return <form>
-            <TextField fullwidth id="search" 
+            <TextField fullwidth="true"
+            id="search" 
             label="Search" 
             size="small" 
             variant="outlined"
