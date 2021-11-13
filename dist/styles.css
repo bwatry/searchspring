@@ -4,22 +4,33 @@ body {
     margin: 0;
 }
 
-h1 {
-    color: #0d47a1;
-    font-size: 3em;
-    font-weight: bold;
+p {
+    font-size: 1.2em;
+    padding: .75em .5em;
 }
 
-input {
-    border-style: none;
+/* Header Section Styles */
+h1 {
+    color: #0d47a1;
+    font-size: 3.5em;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 2em;
 }
 
 .search-bar {
     width: 25em;
+    padding-right: 2em;
 }
 
 .divider {
     background-color: #1976d2;
-    height: 40px;
-    text-align: end;
+    height: 50px;
+}
+
+/* Footer Section Styles */
+footer {
+    background-color: #1976d2;
+    color: aliceblue;
+    padding: 2em;
 }
