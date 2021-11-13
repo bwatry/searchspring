@@ -6,7 +6,6 @@ body {
 
 p {
     font-size: 1.2em;
-    padding: .75em .5em;
 }
 
 /* Header Section Styles */
@@ -28,9 +27,22 @@ h1 {
     height: 50px;
 }
 
+/* Results Section Styles */
+.results-section {
+    padding: 3em 4em;
+}
+
+.results-section h2 {
+    text-align: left;
+}
+
 /* Footer Section Styles */
 footer {
     background-color: #1976d2;
     color: aliceblue;
     padding: 2em;
+}
+
+footer p {
+    padding: .75em .5em;
 }
