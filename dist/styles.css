@@ -29,11 +29,19 @@ h1 {
 
 /* Results Section Styles */
 .results-section {
-    padding: 3em 4em;
+    padding: 3rem 4em;
 }
 
 .results-section h2 {
     text-align: left;
+}
+
+p.on-sale {
+    text-decoration: line-through;
+}
+
+p.no-sale {
+    display: none;
 }
 
 /* Footer Section Styles */

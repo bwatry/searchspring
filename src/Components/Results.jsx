@@ -8,30 +8,33 @@ import Search from "./Search";
 
 function Results(props) {
     console.log(props.results);
-    return <Grid container spacing={4} alignItems="center" justifyContent="space-between" className="results-section">
-        <Grid item xs={10}>
-            <h2>Showing <strong>number</strong> of <strong>number</strong> results for "query"</h2>
-        </Grid>
-        <Grid item xs={2}>
-            <Pagination count={3} hidePrevButton />
-        </Grid>
-        <Grid container item rowSpacing={1} columnSpacing={{xs:1, sm:2, md:3}} alignItems="center" justifyContent="center">
-            <Grid item xs="auto">
-                <Card>
+    function createCard(product, index, products) {
+        let isOnSale=false;
+
+        if (parseFloat(product.msrp) > parseFloat(product.price)) {
+            isOnSale=true;
+        }
+
+        return  <Card key={index}>
                     <CardMedia 
                         component="img"
-                        image="thumbnailImageUrl"
-                        alt="see if there is alt text in json file"
+                        height={200}
+                        image={product.thumbnailImageUrl}
+                        alt="product image"
                     />
                     <CardContent>
-                        <h3>{props.results.name}</h3>
-                        <p id="msrp">msrp</p>
-                        <p>price</p>
+                        <h3>{product.name}</h3>
+                        <p className={isOnSale ? "on-sale" : "no-sale"}>${product.msrp}</p>
+                        <p>${product.price}</p>
                     </CardContent>
                 </Card>
+    }
+
+    return <Grid container rowSpacing={1} columnSpacing={{xs:1, sm:2, md:3}} alignItems="center" justifyContent="center" className="results-section">
+            <Grid item xs="auto">
+                {props.results.map(createCard)}
             </Grid>
         </Grid>
-    </Grid>
 }
 
 export default Results;

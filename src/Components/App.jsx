@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
+import Navigation from "./Navigation";
 import Footer from "./Footer";
 import Results from "./Results";
 
@@ -27,6 +28,7 @@ function App() {
     return <div>
         <Header />
         <div className="divider"></div>
+        <Navigation />
         <Results results={results} />
         <Footer />
     </div>
