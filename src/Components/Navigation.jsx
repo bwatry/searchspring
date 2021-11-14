@@ -3,7 +3,7 @@ import { Grid } from "@mui/material";
 import { Pagination } from "@mui/material";
 
 function Navigation() {
-    return <Grid container spacing={4} alignItems="center" justifyContent="space-between" className="results-section">
+    return <Grid container spacing={4} alignItems="center" justifyContent="space-between" className="nav-section">
             <Grid item xs={10}>
                 <h2>Showing <strong>number</strong> of <strong>number</strong> results for "query"</h2>
             </Grid>

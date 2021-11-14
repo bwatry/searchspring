@@ -8,32 +8,38 @@ import Search from "./Search";
 
 function Results(props) {
     console.log(props.results);
-    function createCard(product, index, products) {
+    function renderProduct(product, index, products) {
         let isOnSale=false;
 
         if (parseFloat(product.msrp) > parseFloat(product.price)) {
             isOnSale=true;
         }
 
-        return  <Card key={index}>
-                    <CardMedia 
-                        component="img"
-                        height={200}
-                        image={product.thumbnailImageUrl}
-                        alt="product image"
-                    />
-                    <CardContent>
-                        <h3>{product.name}</h3>
-                        <p className={isOnSale ? "on-sale" : "no-sale"}>${product.msrp}</p>
-                        <p>${product.price}</p>
-                    </CardContent>
-                </Card>
+        return  <Grid item xs="auto">
+                    <Card key={index} className="product">
+                        <img 
+                            src={product.thumbnailImageUrl}
+                            alt="product image"
+                        />
+                        <Grid container spacing={0.5}>
+                            <Grid item xs={12} sx={{ height: 60 }}>
+                            <h3>{product.name}</h3>
+                            </Grid>
+                            <Grid container item spacing={0.5} justifyContent="center">
+                                <Grid item>
+                                <p className={isOnSale ? "on-sale" : "no-sale"}>${product.msrp}</p>
+                                </Grid>
+                                <Grid item>
+                                <p>${product.price}</p>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Card>
+               </Grid>
     }
 
-    return <Grid container rowSpacing={1} columnSpacing={{xs:1, sm:2, md:3}} alignItems="center" justifyContent="center" className="results-section">
-            <Grid item xs="auto">
-                {props.results.map(createCard)}
-            </Grid>
+    return <Grid container rowSpacing={4} columnSpacing={{xs:2, sm:4, md:8}} alignItems="center" justifyContent="center" className="results-section">
+            {props.results.map(renderProduct)}
         </Grid>
 }
 
