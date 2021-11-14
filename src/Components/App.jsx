@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Grid } from "@mui/material";
 import Header from "./Header";
+import Search from "./Search";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 import Results from "./Results";
@@ -30,6 +32,13 @@ function App() {
     useEffect(() => {
         getResults(query, page)
     }, []);
+
+    // searches for the query string
+    function handleClick(q) {
+        console.log(q);
+        setQuery(q);
+        getResults(q, 1);
+    }
     
     // changes page number and calls getResults with new data
     function handleChange(event, value) {
@@ -38,8 +47,11 @@ function App() {
     }
 
     return <div>
-        <Header />
-        <div className="divider"></div>
+        <Grid container spacing={8} alignItems="center" justifyContent="space-between">
+            <Header />
+            <Search onClick={handleClick} />
+        </Grid>
+        <div className="divider" />
         <Navigation pages={navPages} query={query} onChange={handleChange} />
         <Results results={results} />
         <Footer />
