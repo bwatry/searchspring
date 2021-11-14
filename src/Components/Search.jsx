@@ -14,7 +14,7 @@ function Search(props) {
         setQuery(value);
     }
 
-    return <Grid item xs={6}>
+    return <Grid item sm={12} md={6}>
         <form>
             <TextField fullwidth="true"
             id="search" 

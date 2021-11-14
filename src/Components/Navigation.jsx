@@ -37,10 +37,10 @@ function Navigation(props) {
             justifyContent="space-between" 
             className="nav-section"
             >
-                <Grid item xs={9}>
+                <Grid item sm={12} md={9}>
                     <h2>Showing <strong>{countProducts()}</strong> of <strong>{`${props.pages.totalResults - 1}`}</strong> results {hasQuery()}</h2>
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item sm={12} md={3}>
                     <Pagination 
                         count={props.pages.totalPages} 
                         hidePrevButton={isOnFirstPage()} 
