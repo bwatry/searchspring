@@ -43,6 +43,7 @@ function Navigation(props) {
                 <Grid item sm={12} md={3}>
                     <Pagination 
                         count={props.pages.totalPages} 
+                        page={currentPage}
                         hidePrevButton={isOnFirstPage()} 
                         hideNextButton={isOnLastPage()} 
                         onChange={props.onChange} 
