@@ -23,6 +23,12 @@ function Search(props) {
             variant="outlined"
             className="search-bar"
             onChange={handleChange}
+            onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    props.onClick(query);
+                }
+            }}
             value={query}
             />
             <Button onClick={(event) => {
