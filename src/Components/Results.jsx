@@ -5,10 +5,15 @@ import { Card } from "@mui/material";
 function Results(props) {
     // Renders product data as cards and sets class for if product is on sale
     function renderProduct(product, index) {
-        let isOnSale=false;
-        if (parseFloat(product.msrp) > parseFloat(product.price)) {
-            isOnSale=true;
+        let msrp = `$${parseInt(product.msrp)}`;
+        let price = `$${parseInt(product.price)}`;
+        let isOnSale = false;
+        if (product.msrp > product.price) {
+            isOnSale = true;
         };
+        if (product.price === undefined) {
+            price = "Out of Stock";
+        }
         return  <Grid item xs="auto">
                     <Card key={index} className="product">
                         <img 
@@ -19,12 +24,12 @@ function Results(props) {
                             <Grid item xs={12} sx={{ height: 60 }}>
                             <h3>{product.name}</h3>
                             </Grid>
-                            <Grid container item spacing={0.5} justifyContent="center">
+                            <Grid container item spacing={1} justifyContent="center">
                                 <Grid item>
-                                <p className={isOnSale ? "on-sale" : "no-sale"}>${product.msrp}</p>
+                                <p className={isOnSale ? "on-sale" : "no-sale"}>{msrp}</p>
                                 </Grid>
                                 <Grid item>
-                                <p className={isOnSale ? "sale-price" : "reg-price"}>${product.price}</p>
+                                <p className={isOnSale ? "sale-price" : "reg-price"}>{price}</p>
                                 </Grid>
                             </Grid>
                         </Grid>
