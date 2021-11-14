@@ -24,20 +24,31 @@ function Navigation(props) {
     function isOnLastPage() {
         return (currentPage === parseInt(props.pages.totalPages));
     }
+    // Checks if results limited by query
+    function hasQuery() {
+        if (props.query != "") {
+            return `for "${props.query}"`
+        }
+    }
 
-    return <Grid container spacing={8} alignItems="center" justifyContent="space-between" className="nav-section">
-            <Grid item xs={9}>
-                <h2>Showing <strong>{countProducts()}</strong> of <strong>{`${props.pages.totalResults - 1}`}</strong> results for "{props.query}"</h2>
+    return <Grid container 
+            spacing={8} 
+            alignItems="center" 
+            justifyContent="space-between" 
+            className="nav-section"
+            >
+                <Grid item xs={9}>
+                    <h2>Showing <strong>{countProducts()}</strong> of <strong>{`${props.pages.totalResults - 1}`}</strong> results {hasQuery()}</h2>
+                </Grid>
+                <Grid item xs={3}>
+                    <Pagination 
+                        count={props.pages.totalPages} 
+                        hidePrevButton={isOnFirstPage()} 
+                        hideNextButton={isOnLastPage()} 
+                        onChange={props.onChange} 
+                    />
+                </Grid>
             </Grid>
-            <Grid item xs={3}>
-                <Pagination 
-                    count={props.pages.totalPages} 
-                    hidePrevButton={isOnFirstPage()} 
-                    hideNextButton={isOnLastPage()} 
-                    onChange={props.onChange} 
-                />
-            </Grid>
-        </Grid>
 }
 
 export default Navigation;
