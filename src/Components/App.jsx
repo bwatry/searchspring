@@ -5,8 +5,11 @@ import Footer from "./Footer";
 import Results from "./Results";
 
 function App() {
-    // starts out as an empty array, will later contain API data
+    // Sets default page to 1
+    const [page, setPage] = useState(1);
+    // starts out as empty, will later contain API data
     const [results, setResults]=useState([]);
+    const [navPages, setNavPages]=useState({});
 
     // Fetches API data, converts response to JSON
     function getResults(q, page) {
@@ -16,19 +19,26 @@ function App() {
         fetch(url).then( (response) => {
             response.json().then( (json) => {
                 setResults(json.results);
+                setNavPages(json.pagination);
             })
         })
     }
 
     // calls getResults to start with default data
     useEffect(() => {
-        getResults("jeans", "2")
+        getResults("jeans", page)
     }, []);
     
+    // changes page number and calls getResults with new data
+    function handleChange(event, value) {
+        setPage(value);
+        getResults("jeans", value);
+    }
+
     return <div>
         <Header />
         <div className="divider"></div>
-        <Navigation />
+        <Navigation pages={navPages} query={"q"} onChange={handleChange} />
         <Results results={results} />
         <Footer />
     </div>

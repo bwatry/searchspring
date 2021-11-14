@@ -7,14 +7,12 @@ import { CardMedia } from "@mui/material";
 import Search from "./Search";
 
 function Results(props) {
-    console.log(props.results);
-    function renderProduct(product, index, products) {
+    // Renders product data as cards and sets class for if product is on sale
+    function renderProduct(product, index) {
         let isOnSale=false;
-
         if (parseFloat(product.msrp) > parseFloat(product.price)) {
             isOnSale=true;
-        }
-
+        };
         return  <Grid item xs="auto">
                     <Card key={index} className="product">
                         <img 
@@ -30,7 +28,7 @@ function Results(props) {
                                 <p className={isOnSale ? "on-sale" : "no-sale"}>${product.msrp}</p>
                                 </Grid>
                                 <Grid item>
-                                <p>${product.price}</p>
+                                <p className={isOnSale ? "sale-price" : "reg-price"}>${product.price}</p>
                                 </Grid>
                             </Grid>
                         </Grid>
