@@ -1,10 +1,6 @@
 import React from "react";
 import { Grid } from "@mui/material";
-import { Pagination } from "@mui/material";
 import { Card } from "@mui/material";
-import { CardContent } from "@mui/material";
-import { CardMedia } from "@mui/material";
-import Search from "./Search";
 
 function Results(props) {
     // Renders product data as cards and sets class for if product is on sale

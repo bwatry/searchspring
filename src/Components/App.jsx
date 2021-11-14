@@ -7,9 +7,11 @@ import Results from "./Results";
 function App() {
     // Sets default page to 1
     const [page, setPage] = useState(1);
+    // Set default query to null
+    const [query, setQuery] = useState("");
     // starts out as empty, will later contain API data
-    const [results, setResults]=useState([]);
-    const [navPages, setNavPages]=useState({});
+    const [results, setResults] = useState([]);
+    const [navPages, setNavPages] = useState({});
 
     // Fetches API data, converts response to JSON
     function getResults(q, page) {
@@ -26,19 +28,19 @@ function App() {
 
     // calls getResults to start with default data
     useEffect(() => {
-        getResults("jeans", page)
+        getResults(query, page)
     }, []);
     
     // changes page number and calls getResults with new data
     function handleChange(event, value) {
         setPage(value);
-        getResults("jeans", value);
+        getResults(query, value);
     }
 
     return <div>
         <Header />
         <div className="divider"></div>
-        <Navigation pages={navPages} query={"q"} onChange={handleChange} />
+        <Navigation pages={navPages} query={query} onChange={handleChange} />
         <Results results={results} />
         <Footer />
     </div>
