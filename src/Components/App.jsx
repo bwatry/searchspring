@@ -19,7 +19,7 @@ function App() {
     function getResults(q, page) {
         const siteId="scmq7n";
         const resultsFormat="native";
-        const url=`http://api.searchspring.net/api/search/search.json?siteId=${siteId}&q=${q}&resultsFormat=${resultsFormat}&page=${page}`;
+        const url=`https://api.searchspring.net/api/search/search.json?siteId=${siteId}&q=${q}&resultsFormat=${resultsFormat}&page=${page}`;
         fetch(url).then( (response) => {
             response.json().then( (json) => {
                 setResults(json.results);
