@@ -5,7 +5,7 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         filename: "index.js",
-        path: path.resolve(__dirname, "searchspring")
+        path: path.resolve(__dirname, "dist")
     },
     resolve: {
         extensions: ["", ".js", ".jsx"]

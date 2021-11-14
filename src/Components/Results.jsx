@@ -17,8 +17,8 @@ function Results(props) {
         if (product.price === undefined) {
             price = "Out of Stock";
         }
-        return  <Grid item xs="auto">
-                    <Card key={index} className="product">
+        return  <Grid item xs="auto" key={index}>
+                    <Card className="product">
                         <img 
                             src={product.thumbnailImageUrl}
                             alt="product image"
