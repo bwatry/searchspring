@@ -47,7 +47,7 @@ function App() {
     }
 
     return <div>
-        <Grid container spacing={8} alignItems="center" justifyContent="space-between">
+        <Grid container spacing={8} alignItems="center" justifyContent="space-between" className="header-section">
             <Header />
             <Search onClick={handleClick} />
         </Grid>

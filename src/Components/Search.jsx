@@ -1,8 +1,9 @@
 import React from "react";
 import { TextField } from "@mui/material";
-import { Button } from "@mui/material";
+import { Fab } from "@mui/material";
 import { Grid } from "@mui/material";
 import { useState } from "react/cjs/react.development";
+import SearchIcon from '@mui/icons-material/Search';
 
 function Search(props) {
     // query starts out empty
@@ -31,14 +32,14 @@ function Search(props) {
             }}
             value={query}
             />
-            <Button onClick={(event) => {
+            <Fab onClick={(event) => {
                 event.preventDefault();
                 props.onClick(query);
                 }} 
-            size="medium" 
-            variant="contained">
-                Search
-            </Button>
+            size="small"
+            >
+                <SearchIcon className="search-button" />
+            </Fab>
         </form>
     </Grid>
 }
