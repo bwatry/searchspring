@@ -1,5 +1,6 @@
 import React from "react";
-import { TextField, Fab, Grid } from "@mui/material";
+import { TextField, IconButton, Grid } from "@mui/material";
+import { InputAdornment } from "@mui/material";
 import { useState } from "react/cjs/react.development";
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -36,10 +37,14 @@ export default function Search(props) {
             onChange={handleChange}
             onKeyDown={handleKeyDown}
             value={query}
+            InputProps={{
+                endAdornment: <InputAdornment position="end">
+                    <IconButton onClick={handleClick} size="small">
+                        <SearchIcon className="search-button" />
+                    </IconButton>
+                </InputAdornment>
+            }}
             />
-            <Fab onClick={handleClick} size="small">
-                <SearchIcon className="search-button" />
-            </Fab>
         </form>
     </Grid>
 }
