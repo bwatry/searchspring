@@ -2,18 +2,18 @@ import React from "react";
 import { Grid, Pagination } from "@mui/material";
 
 export default function Navigation(props) {
-    let currentPage = parseInt(props.pages.currentPage);
+    let currentPage = parseInt(props.pages.currentPage) || 0;
     // Calculates how many products are displayed
     // The first page only contains 23 products, unlike subsequent pages
     function getRange() {
         let begin = props.pages.begin;
         let end = props.pages.end;
         if (currentPage === 1) {
-            return `1 - ${end - begin}`;
+            return `1 - ${(end - begin) || ""}`;
         } else {
             begin -= 1;
             end -= 1;
-            return `${begin} - ${end}`;
+            return `${begin || ""} - ${end || ""}`;
         }
     }
     // Checks if this is the first page of results
@@ -38,9 +38,9 @@ export default function Navigation(props) {
             className="nav-section"
             >
                 <Grid item sm="auto">
-                    {/* Calculated total results based on results per page the actual total is one less */}
+                    {/* Calculated total results based on results per page because the actual total is one less */}
                     <h2>
-                        Showing <strong>{getRange()}</strong> of <strong>{`${props.pages.totalResults - 1}`}</strong> results {hasQuery()}
+                        Showing <strong>{getRange()}</strong> of <strong>{`${(props.pages.totalResults - 1) || ""}`}</strong> results {hasQuery()}
                     </h2>
                 </Grid>
                 <Grid item sm="auto">
