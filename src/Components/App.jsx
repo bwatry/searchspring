@@ -6,7 +6,7 @@ import Navigation from "./Navigation";
 import Footer from "./Footer";
 import Results from "./Results";
 
-function App() {
+export default function App() {
     // Sets default page to 1
     const [page, setPage] = useState(1);
     // Set default query to null
@@ -35,7 +35,6 @@ function App() {
 
     // searches for the query string
     function handleClick(q) {
-        console.log(q);
         setQuery(q);
         getResults(q, 1);
     }
@@ -57,5 +56,3 @@ function App() {
         <Footer />
     </div>
 }
-
-export default App;

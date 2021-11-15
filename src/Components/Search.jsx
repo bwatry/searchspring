@@ -1,17 +1,27 @@
 import React from "react";
-import { TextField } from "@mui/material";
-import { Fab } from "@mui/material";
-import { Grid } from "@mui/material";
+import { TextField, Fab, Grid } from "@mui/material";
 import { useState } from "react/cjs/react.development";
 import SearchIcon from '@mui/icons-material/Search';
 
-function Search(props) {
+export default function Search(props) {
     // query starts out empty
     const [query, setQuery] = useState("");
     // dynamically changes TextField value
     function handleChange(event) {
         const { value } = event.target;
         setQuery(value);
+    }
+
+    function handleKeyDown(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            props.onClick(query);
+        }
+    }
+
+    function handleClick(event) {
+        event.preventDefault();
+        props.onClick(query);
     }
 
     return <Grid item sm={12} md={6}>
@@ -24,24 +34,12 @@ function Search(props) {
             variant="outlined"
             className="search-bar"
             onChange={handleChange}
-            onKeyDown={(event) => {
-                if (event.key === "Enter") {
-                    event.preventDefault();
-                    props.onClick(query);
-                }
-            }}
+            onKeyDown={handleKeyDown}
             value={query}
             />
-            <Fab onClick={(event) => {
-                event.preventDefault();
-                props.onClick(query);
-                }} 
-            size="small"
-            >
+            <Fab onClick={handleClick} size="small">
                 <SearchIcon className="search-button" />
             </Fab>
         </form>
     </Grid>
 }
-
-export default Search;
