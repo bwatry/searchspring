@@ -37,13 +37,13 @@ export default function Navigation(props) {
             justifyContent="space-between" 
             className="nav-section"
             >
-                <Grid item sm={12} md={9}>
+                <Grid item sm="auto">
                     {/* Calculated total results based on results per page the actual total is one less */}
                     <h2>
                         Showing <strong>{getRange()}</strong> of <strong>{`${props.pages.totalResults - 1}`}</strong> results {hasQuery()}
                     </h2>
                 </Grid>
-                <Grid item sm={12} md={3}>
+                <Grid item sm="auto">
                     <Pagination 
                         count={props.pages.totalPages} 
                         page={currentPage}
